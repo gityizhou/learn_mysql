@@ -1,0 +1,52 @@
+# INSERT
+
+insert into table_name(column1_name, column2_name) 
+values(column1_value, column2_value),
+(....)*,
+(column1_value, column2_value);
+
+
+# SELECT   
+
+SELECT * from table_name;     # show all columns and rows from the table
+
+SELECT column_name from table_name;   # only show selected column
+
+example:
+    select * from person;
+    select name from person;
+
+
+# NULL & not NULL
+
+CREATE table person(name VARCHAR(20) NOT NULL, phone VARCHAR(20), age INT);
+--> name can not be NULL in this table
+
+# set default value
+
+CREATE table person(name VARCHAR(20) DEFAULT "zhouyi", phone VARCHAR(20), age INT);
+
+# Primary Key
+primary key can not be duplicate.
+can not be NULL
+PK can be a group of value   -->  PRIMARY KEY(a,b,c)
+
+CREATE table person
+(   id INT AUTO_INCREMENT,
+    name VARCHAR(20) DEFAULT "zhouyi", 
+    phone VARCHAR(20), 
+    age INT, 
+    PRIMARY KEY(id)
+    );
+
+# UNIQUE
+unique value can not be duplicate.
+can be NULL.
+
+CREATE table person
+(   id INT AUTO_INCREMENT,
+    name VARCHAR(20) DEFAULT "zhouyi", 
+    phone VARCHAR(20) UNIQUE, 
+    age INT, 
+    PRIMARY KEY(id)
+    );

@@ -1,0 +1,58 @@
+# read from source sql
+
+source /home/zhouyi/learn/mysql/sql/04/038 test.sql
+
+# SELECT
+
+SELECT * from employee;
+
+SELECT first_name, salary from employee;
+
+SELECT first_name as fname, last_name as lname from employee;
+
+
+# WHERE
+
+SELECT * from employee 
+where title='Database Administrator';
+
+SELECT * from employee 
+where last_name='Clifford';
+
+SELECT * from employee 
+where title='Database Administrator' and salary>5000;
+
+SELECT * from employee
+where title='Software Architect' or salary=6000;
+
+select * from employee 
+where not title='Software Architect';
+
+
+# UPDATE
+
+UPDATE <table name> set <value> where <condition>
+
+UPDATE employee set salary=10000
+WHERE title='Software Architect';
+
+UPDATE employee set salary=10000, note='update'
+WHERE title='Software Architect';
+
+
+# DELETE
+
+DELETE from employee
+where title='Software Architect';
+
+DELETE from employee    # delete the whole table !!
+
+
+# HOMEWORK
+1) select title,director_name,imdb_score from movie;
+2) select * from movie where title_year=2012 and content_rating='PG-13';
+3) select * from movie where not country='USA';
+4) select * from movie where director_name='Peter Jackson' or director_name='Christopher Nolan';
+5) update movie set imdb_score=9 where director_name='Christopher Nolan';
+6) DELETE from movie where imdb_score<6;
+7) DELETE from movie where title_year=2006

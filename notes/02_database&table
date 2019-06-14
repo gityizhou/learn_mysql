@@ -1,0 +1,60 @@
+mysql -uroot -p             # start mysql shell
+
+# database level basic operation
+
+show databases;         # print all databases
+create database <name>;    # create a database
+drop database <name>;    # delete a database
+use <database name>;    # change to another database
+select database();     # show the database that you are using
+
+# delimeter
+';' default delimeter
+delimeter $$      # change the delimeter from ; to $$
+
+
+# keywords can be highlighted (capital letter)
+
+# Table
+Table: a database is just a bunch of tables
+tables hold the data in a structured format
+
+
+# Data type
+
+Numeric Types: INT SMALLINT TINYINT MEDIUMINT BIGINT   FLOAT  DOUBLE (......)
+
+String Types: CHAR  VARCHAR  BINARY  (......)
+** ENUM    ENUM('x-small', 'small', 'medium', 'large', 'x-large') 
+
+Date and Time : DATE DATETIME TIMESTAMP (......)
+
+
+# create table
+
+CREATE TABLE table_name
+    (
+        column_name data_type,
+        column_name data_type,
+        ......
+    )
+
+example 1: create Person table
+
+CREATE table person
+    (
+        name varchar(20),
+        phone varchar(20),
+        age int
+    );
+
+# table command
+
+desc <table_name>;    # describe person table
+desc person;
+
+show tables;    # show all tables in this database
+
+show columns from <table_name>;   # same as desc
+
+drop table <table_name>;    # delete a table
