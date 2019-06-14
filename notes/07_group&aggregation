@@ -1,0 +1,71 @@
+# COUNT
+
+SELECT count(*) 
+FROM employee
+WHERE title='Software Engineer';
+
+# DISTINCT
+
+SELECT count(DISTINCT title) 
+FROM employee;
+
+# GROUP BY
+
+SELECT title, count(*)
+FROM employee
+GROUP BY title;
+
+
+# MAX & MIN
+
+SELECT max(salary)
+FROM employee;
+
+SELECT title, max(salary) as highest_salary
+FROM employee
+GROUP BY title
+ORDER BY highest_salary DESC;
+
+** cant use other coloumns when using max, min, sum, avg
+# SUM & AVG
+
+SELECT sum(salary),avg(salary) from employee;
+
+SELECT title, sum(salary), avg(salary)
+FROM employee
+GROUP BY title;
+
+
+# HAVING
+where can only filter the data before group by
+having can filter the aggregation data
+
+SELECT title, sum(salary), avg(salary)
+FROM employee
+GROUP BY title
+HAVING title='Software Engineer';
+
+
+# HOMEWORK
+
+1) SELECT director_name, count(*) 
+FROM movie 
+WHERE director_name='Christopher Nolan';
+
+2) SELECT count(*)
+FROM movie 
+WHERE actor_1_name='Tom Hardy' or actor_2_name='Tom Hardy';
+
+3) SELECT count(DISTINCT director_name)
+FROM movie;
+
+4) SELECT director_name,count(title) as movies
+FROM movie
+GROUP BY director_name
+ORDER BY movies DESC LIMIT 5;
+
+5) SELECT director_name, sum(gross) as total_gross
+FROM movie
+GROUP BY director_name
+ORDER BY total_gross DESC LIMIT 5;
+

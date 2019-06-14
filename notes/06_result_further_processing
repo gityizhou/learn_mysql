@@ -1,0 +1,62 @@
+# ORDER BY
+sort
+
+SELECT * from employee ORDER BY salary;
+
+* descend order
+
+SELECT * from employee ORDER BY salary DESC;
+
+SELECT first_name, last_name, salary
+from employee ORDER BY 3;     # order by the third column
+
+SELECT first_name, last_name,salary
+from employee ORGER BY 2, 1;
+
+
+# LIMIT
+limit the number of result
+
+SELECT * from employee limit 5;
+
+SELECT * from employee ORDER BY SALARY LIMIT 3;
+
+SELECT * from employee order by salary desc limit 3;
+
+select * from employee order by salary desc limit 2,4;   # (2-4)
+
+
+
+# LIKE
+fuzzy search
+
+SELECT * from employee where last_name like 'C%';
+SELECT * from employee where last_name like '%i%';
+SELECT * from employee where last_name like '%n';
+SELECT * from employee where last_name like '__an';    # String length is 4
+SELECT * from employee where last_name like '____';    # String length is 4
+SELECT * from employee where first_name like '%\%%';   # escape symbol
+
+
+# HOMEWORK
+
+1) SELECT title, director_name, title_year from movie
+WHERE title like '%dark%';
+
+2) SELECT title, title_year, director_name, gross, actor_1_name,actor_2_name 
+FROM movie
+ORDER BY gross DESC limit 10;
+
+3) SELECT title, title_year, gross, imdb_score 
+FROM movie
+WHERE director_name='Peter Jackson' 
+ORDER BY gross DESC LIMIT 1;
+
+4) SELECT title, title_year, director_name 
+FROM movie
+ORDER BY title;
+
+5) SELECT title, title_year, imdb_score
+FROM movie
+WHERE director_name='Christopher Nolan'
+ORDER BY imdb_score DESC limit 1;
