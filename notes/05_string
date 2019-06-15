@@ -1,0 +1,93 @@
+# String manipulation
+
+# CONCAT
+take one or more string arguments and concatenates them
+into one single string.
+
+CONCAT('A', 'B')='AB'
+
+example:
+
+SELECT CONCAT(first_name,' ',last_name) 
+as full_name from employee;
+
+select CONCAT(first_name,' ',last_name,'is a ',title)
+as position from employee;
+
+*CONCAT_WS       
+same function as CONCAT
+but can support delimeter in the first parameter.
+
+CONCAT_WS(delimeter,'A','B',(...))
+
+example:
+SELECT CONCAT_WS(' ', first_name, last_name) 
+as full_name from employee;
+
+
+# SUBSTRING
+
+SUBSTRING(<string>, <startpoint>, <endpoint>)
+shorthand  ---> SUBSTR
+example:
+# from 1 to 4
+SELECT SUBSTRING('Hello World', 1, 4)
+# from 7 to the end  
+SELECT SUBSTRING('Hello World', 7)
+# last 3 characters
+SELECT SUBSTRING('Hello World', -3)   
+
+SELECT CONCAT_WS
+    ( ' ', first_name, last_name, 'was hired on', 
+    SUBSTR(hire_date,1,4)) 
+    as information from employee;
+
+
+# REPLACE
+
+SELECT REPLACE(<string>, <source>, <target>);
+
+example:
+
+SECLECT REPLACE('Hello World', 'world', 'MySQL');
+
+SELECT REPLACE(title, 'Software', 'Hardware') from employee;
+
+# REVERSE
+
+SELECT REVERSE('Hello World');
+--> dlroW olleH
+
+
+# CHAR_LENGTH
+
+SELECT CHAR_LENGTH('Hello World');
+--> 11
+
+
+# UPPER & LOWER
+
+SELECT UPPER('hello, world')
+SELECT LOWER('HELLO, WORLD')
+
+
+# PRACTICE
+
+1) SELECT CONCAT_WS('->',director_name,imdb_score) 
+as director_score from movie;
+
+2) SELECT country, REVERSE(country) 
+as reverse_country from movie;
+
+3) SELECT CONCAT_WS(' ',title,'was released in',title_year)
+as title from movie; 
+
+4) SELECT title, CHAR_LENGTH(title) 
+as title_length from movie; 
+
+5) SELECT CONCAT(SUBSTR(title, 1, 8), '...') 
+as short_title, director_name from movie;
+
+
+
+

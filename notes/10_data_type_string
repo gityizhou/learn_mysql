@@ -1,0 +1,50 @@
+#10 String Type
+
+# CHAR & VARCHAR
+
+CHAR: fixed length string (0-255)   be used for fixed-length field
+
+VARCHAR: variable-length strings (0-655335)    one byte is used to record length info.
+
+
+
+# BINARY & VARBINARY
+similar to CHAR and VARCHAR
+BINARY: represent length in bytes
+BINARY(4)   ->>  4 bytes
+'a '  --> 'a \0\0'
+VARBINARY
+
+
+# BLOB & TEXT
+TINYBLOB BLOB  MEDIUMBLOB  LONGBLOX
+BLOB: binary large objects
+TINYTEXT TEXT MEDIUMTEXT LONGTEXT
+TEXT: large char
+
+# ENUM
+String object with a value from a list
+size ENUM('x-small', 'small', 'medium','large','x-large')
+
+why use ENUM: standard data interface
+faster speed, can use INDEX (1,2,3,4 ...)
+
+#SET
+
+SET('one', 'two')
+
+''
+'one'
+'two'
+'one, two'
+
+SET('one','two','three')
+    three two  one
+0    0    0    0    ''
+1    0    0    1    one
+2    0    1    0    two
+3    0    1    1    one,two
+4    1    0    0    three
+5    1    0    1    one,three
+6    1    1    0    two,three
+7    1    1    1    one,two,three
